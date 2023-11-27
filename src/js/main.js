@@ -9,15 +9,13 @@ const app = document.getElementById("app");
 fetch(apiKey)
   .then((response) => response.json())
   .then((movies) => {
-   //before mapping
+    //before mapping
     for (let i = 0; i < movies.Search.length; i++) {
       const htmlMovieBefore = document.createElement("section");
-      htmlMovieBefore.innerHTML = movies.Search[i].Title + movies.Search[i].Year;
+      htmlMovieBefore.innerHTML = movies.Search[i].Title + " " + movies.Search[i].Year;
       app.appendChild(htmlMovieBefore);
     }
-   createHTML(movies.Search);
-
-  
+    createHTML(movies.Search);
   });
 
 const createHTML = (movies) => {
@@ -28,5 +26,4 @@ const createHTML = (movies) => {
     htmlMovie.innerHTML = movieList[i].title + " " + movieList[i].year;
     app.appendChild(htmlMovie);
   }
-
 }
