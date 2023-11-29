@@ -1,13 +1,15 @@
 
 import { Movie } from './modules/movie';
 import './scss/style.scss';
+//import.meta.env.VITE_MY_OMDB_API_KEY;
 
 // api key 6424148a
-const apiKey = "http://www.omdbapi.com/?i=tt3896198&apikey=6424148a&s=matrix";
+const apiKey = "http://www.omdbapi.com/?i=tt3896198&apikey="+import.meta.env.VITE_MY_OMDB_API_KEY+"&s=matrix";
 const app = document.getElementById("app");
 
 fetch(apiKey)
-  .then((response) => response.json())
+  .then((response) => response.json()) //detta blir ett löfte, därför gör vi en till .then för att hantera resultatet.
+  //^har också automatisk return, då den inte har måsvingar
   .then((movies) => {
     //before mapping
     for (let i = 0; i < movies.Search.length; i++) {
