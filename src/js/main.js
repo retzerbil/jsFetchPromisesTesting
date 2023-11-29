@@ -1,10 +1,10 @@
 
 import { Movie } from './modules/movie';
 import './scss/style.scss';
-//import.meta.env.VITE_MY_OMDB_API_KEY;
+const myKey = import.meta.env.VITE_MY_OMDB_API_KEY;
 
 // api key 6424148a
-const apiKey = "http://www.omdbapi.com/?i=tt3896198&apikey="+import.meta.env.VITE_MY_OMDB_API_KEY+"&s=matrix";
+const apiKey = "http://www.omdbapi.com/?i=tt3896198&apikey="+myKey+"&s=matrix";
 const app = document.getElementById("app");
 
 fetch(apiKey)
